@@ -14,3 +14,6 @@ The goal here was to create a (singly) linked-list in Javascript with the follow
 - `toString()` returns your LinkedList objects as strings in the format: ( value ) -> ( value ) -> ( value ) -> null
 - `insertAt(value, index)` inserts a new node with the provided value at the given index
 - `removeAt(index)` removes the node at the given index
+
+## Thoughts
+

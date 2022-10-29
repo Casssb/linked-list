@@ -118,7 +118,7 @@ class LinkedList {
   insertAt(value, index) {
     const node = new Node(value);
     if (index === 0 || index >= this.size) {
-      this.append(node);
+      this.prepend(value);
       return;
     }
     let prevNode = this.at(index - 1);
@@ -145,3 +145,37 @@ class LinkedList {
     this.size -= 1;
   }
 }
+
+/* Test scripts */
+const testList = new LinkedList();
+console.log(testList.getSize()); /* 0 */
+testList.append('619');
+console.log(
+  testList
+); /* LinkedList { head: Node { value: '619', next: null }, size: 1 } */
+testList.append(200);
+testList.append('hola');
+testList.append(60);
+console.log(
+  testList.toString()
+); /* ( 619 ) ->( 200 ) ->( hola ) ->( 60 ) ->null */
+testList.prepend('pepe');
+console.log(
+  testList.toString()
+); /* ( pepe ) ->( 619 ) ->( 200 ) ->( hola ) ->( 60 ) ->null */
+console.log(testList.getHead()); /* Node {
+  value: 'pepe',
+  next: Node { value: '619', next: Node { value: 200, next: [Node] } }
+} */
+console.log(testList.getTail()); /* ode { value: 60, next: null } */
+testList.pop();
+console.log(
+  testList.toString()
+); /* ( pepe ) ->( 619 ) ->( 200 ) ->( hola ) ->null */
+console.log(testList.contains('pepe')); /* true */
+console.log(testList.find('pepe')); /* 0 */
+testList.removeAt(1);
+testList.insertAt('wario', 0);
+console.log(
+  testList.toString()
+); /* ( wario ) ->( pepe ) ->( 200 ) ->( hola ) ->null */
