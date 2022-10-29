@@ -6,8 +6,8 @@ class Node {
 }
 
 class LinkedList {
-  constructor(head = null) {
-    this.head = head;
+  constructor() {
+    this.head = null;
     this.size = 0;
   }
 
@@ -116,6 +116,32 @@ class LinkedList {
   }
 
   insertAt(value, index) {
+    const node = new Node(value);
+    if (index === 0 || index >= this.size) {
+      this.append(node);
+      return;
+    }
+    let prevNode = this.at(index - 1);
+    let currentNode = prevNode.next;
+    prevNode.next = node;
+    node.next = currentNode;
+    this.size += 1;
+  }
 
+  removeAt(index) {
+    if (this.size === 0) {
+      return 'List is empty';
+    } else if (index >= this.size) {
+      return 'Index does no exist';
+    } else if (this.size === 0 || index === this.size - 1) {
+      return this.pop();
+    } else if (index === 0) {
+      this.head = this.head.next;
+    } else {
+      let prevNode = this.at(index - 1);
+      let currentNode = prevNode.next;
+      prevNode.next = currentNode.next;
+    }
+    this.size -= 1;
   }
 }
