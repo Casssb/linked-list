@@ -52,4 +52,70 @@ class LinkedList {
     }
     return temp;
   }
+
+  at(index) {
+    if (this.size === 0) {
+      return 'List is empty (no nodes to seearch)';
+    }
+    let temp = this.head;
+    for (let i = 0; i < index; i++) {
+      temp = temp.next;
+    }
+    return temp ? temp : 'There is nothing at this index';
+  }
+
+  pop() {
+    if (this.size === 0) {
+      return null;
+    }
+    if (this.size < 2) {
+      this.head = null;
+    } else {
+      let last = this.at(this.size - 2);
+      last.next = null;
+    }
+    this.size -= 1;
+  }
+
+  contains(value) {
+    let temp = this.head;
+    while (temp) {
+      if (temp.value === value) {
+        return true;
+      }
+      temp = temp.next;
+    }
+    return false;
+  }
+
+  find(value) {
+    if (this.size === 0) {
+      return null;
+    }
+    let temp = this.head;
+    let index = 0;
+    while (temp) {
+      if (temp.value === value) {
+        return index;
+      }
+      temp = temp.next;
+      index += 1;
+    }
+    return null;
+  }
+
+  toString() {
+    if (this.size === 0) return 'List is empty';
+    let string = '';
+    let temp = this.head;
+    while (temp) {
+      string += `( ${temp.value} ) ->`;
+      temp = temp.next;
+    }
+    return (string += null);
+  }
+
+  insertAt(value, index) {
+
+  }
 }
