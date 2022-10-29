@@ -17,7 +17,7 @@ class LinkedList {
       this.head = node;
     } else {
       let temp = this.head;
-      while (temp.next !== null) {
+      while (temp.next) {
         temp = temp.next;
       }
       temp.next = node;
