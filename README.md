@@ -14,3 +14,7 @@ The goal here was to create a (singly) linked list in Javascript with the follow
 - `toString()` returns your LinkedList objects as strings in the format: ( value ) -> ( value ) -> ( value ) -> null
 - `insertAt(value, index)` inserts a new node with the provided value at the given index
 - `removeAt(index)` removes the node at the given index
+
+## Thoughts
+
+Creating the logic for all of the above functions seemed pretty simple since the list isn't omni-directional. My solutions all ended up using either a while or for loop. I've created a pointer that starts with the head node and will loop through the list until the value is found. This could easily have been achieved using recursion but I've come to the conclusion that unless the data structure is sufficiently complex (like a graph/tree) or has enough divergent paths (like multiple chained objects containing omni-directional pathways), loops seem more practical and efficient. 
